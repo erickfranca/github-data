@@ -62,4 +62,5 @@ jobs:
         run: ls -R
       
       - name: Output filename
-        run: echo "JS file path: ${{ needs.build.outputs.script-file }}"
+        run: |
+          echo "JS file path: ${{ needs.build.outputs.script-file }}"
