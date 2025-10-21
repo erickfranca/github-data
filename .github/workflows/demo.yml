@@ -42,10 +42,13 @@ jobs:
     steps:
       - name: Deploy
         run: echo "Deploying..."
-      - uses: actions/download-artifact@v5
+      - name: Get build artifacts
+        uses: actions/download-artifact@v5
         with:
           name: my-artifact
       - name: Display structure of downloaded files
         run: ls -R
       - name: Output filename
         run: echo "${{ needs.build.outputs.script-file }}"
+      - name: Output env
+        run: echo $GITHUB_OUTPUT
